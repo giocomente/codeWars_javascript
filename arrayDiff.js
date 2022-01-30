@@ -1,3 +1,4 @@
+//Первая версия
 function arrayDiff(a, b) {
     //Итоговый массив
     var c = [];
@@ -10,4 +11,10 @@ function arrayDiff(a, b) {
       } 
     }
     return c; 
-  }
+}
+
+//Рефакторинг с фильтрацией
+
+function arrayDiff(a, b) {
+    return a.filter(e => !b.includes(e));
+}
