@@ -20,32 +20,19 @@
             res = "Try again!";
             break;
         }
-        // for(e of column){
-        //     if(e == 0) {
-        //         res = "Try again!";
-        //         break;
-        //     }
-        // }
     }
     //---check regions---
-    for(let i=0; i < 9; i++){
-        let region = getRegion(board, i);
-        if (new Set(region).size != region.length) {
-            res = "Try again!";
-            break;
+    for(let i=0; i < 3; i++){
+        for(let j=0; j < 3; j++){
+            let region = getRegion(board, i, j);
+            if (new Set(region).size != region.length) {
+                res = "Try again!";
+            }
         }
-        // for(e of region){
-        //     if(e == 0) {
-        //         res = "Try again!";
-        //         break;
-        //     }
-        // }
     }
 
     return res;
 }
-
-
 
 function getColumn(board, i){
     let column = [];
@@ -55,29 +42,29 @@ function getColumn(board, i){
     return column;
 }
 
-function getRegion(board, i){
-    let k = ~(i/3);
+function getRegion(board, i, j){
     let region = [];
-    for(let j=k; j < k+3; j++){
-        let line = board[j];
-        for(let index =k*2; index < k*2 +3; index++)
-            region.push(line[index]);
+    let r = i*3;
+    let c = j*3;
+    for(let row = r; row < r+3; row++){
+        for(let col =c; col < c+3; col++){
+            region.push(board[row][col]);
+        }
     }
-    // for(let index = 0; index < 9; index++){
-        
-    // }
+    
+    console.log(region);
+
     return region;
 }
 
-console.log(~~(4/3*10));
-// console.log(doneOrNot([
-//     [5, 3, 4, 6, 7, 8, 9, 1, 2], 
-//     [6, 7, 2, 1, 9, 5, 3, 4, 8],
-//     [1, 9, 8, 3, 4, 2, 5, 6, 7],
-//     [8, 5, 9, 7, 6, 1, 4, 2, 3],
-//     [4, 2, 6, 8, 5, 3, 7, 9, 1],
-//     [7, 1, 3, 9, 2, 4, 8, 5, 6],
-//     [9, 6, 1, 5, 3, 7, 2, 8, 4],
-//     [2, 8, 7, 4, 1, 9, 6, 3, 5],
-//     [3, 4, 5, 2, 8, 6, 1, 7, 9]])
-// );
+console.log(doneOrNot([
+    [5, 3, 4, 6, 7, 8, 9, 1, 2], 
+    [6, 7, 2, 1, 9, 5, 3, 4, 8],
+    [1, 9, 8, 3, 4, 2, 5, 6, 7],
+    [8, 5, 9, 7, 6, 1, 4, 2, 3],
+    [4, 2, 6, 8, 5, 3, 7, 9, 1],
+    [7, 1, 3, 9, 2, 4, 8, 5, 6],
+    [9, 6, 1, 5, 3, 7, 2, 8, 4],
+    [2, 8, 7, 4, 1, 9, 6, 3, 5],
+    [3, 4, 5, 2, 8, 6, 1, 7, 9]])
+);
