@@ -3,9 +3,7 @@
     b=b.replace(/^0+/, '');
     let arrA = [...a].map(e=>Number(e)).reverse();
     let arrB = [...b].map(e=>Number(e)).reverse();
-    
-    console.log(arrB[arrB.length])
-
+ 
     if (arrA.length >= arrB.length)
         return sum(arrA, arrB);
     else
