@@ -72,9 +72,6 @@ var justify = function(str, len) {
             result += word;
         });
     }
-    if(result[result.length-1] == '\n'){
-        result[result.length-1] = '';
-    }
     return result.slice(0, -1);
 };
 
