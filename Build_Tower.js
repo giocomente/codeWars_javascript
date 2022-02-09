@@ -1,3 +1,8 @@
+/**
+ * 
+ * @param {number} nFloors Кол-во уровней пирамиды
+ * @returns []
+ */
 function towerBuilder(nFloors) {
     let result =[];
     for(let i=1, s=nFloors-1; i<nFloors+1; i++,s--){
