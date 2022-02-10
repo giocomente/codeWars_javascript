@@ -19,4 +19,4 @@ function height(n,m) {
     return h;
 }
 
-console.log((height(237, 500)));
+console.log((height(2, 14)).toString());
